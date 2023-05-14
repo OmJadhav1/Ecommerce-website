@@ -99,6 +99,8 @@ export const StateContext = ({ children }) => {
         foundProduct.quantity -= 1;
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
         setTotalQuantity((prevTotalQuantity) => prevTotalQuantity - 1);
+      } else {
+        onRemove(foundProduct);
       }
     }
   };

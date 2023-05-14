@@ -11,7 +11,7 @@ import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
 
 const ProductDetails = ({ product, products }) => {
-  const { image, name, details, price } = product;
+  const { image, name, details, price, total_review, rating } = product;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
@@ -45,14 +45,9 @@ const ProductDetails = ({ product, products }) => {
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
-            <div>
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
-            </div>
-            <p>(20)</p>
+            <AiFillStar />
+            <p>{rating}/5.0</p>
+            <p>| {total_review} reviews</p>
           </div>
           <h4>Details:</h4>
           <p>{details}</p>
@@ -130,6 +125,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
 
   return {
     props: { products, product },
+    revalidate: 10,
   };
 };
 

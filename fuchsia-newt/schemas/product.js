@@ -36,5 +36,15 @@ export default {
       title: 'Details',
       type: 'string',
     },
+    {
+      name: 'total_review',
+      type: 'number',
+      title: 'Total Reviews',
+    },
+    {
+      name: 'rating',
+      type: 'number',
+      title: 'Average Rating',
+    },
   ],
 }
